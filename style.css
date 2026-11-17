@@ -1,0 +1,245 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f6;
+  color: #222;
+}
+
+header {
+  background: #8b3a0f;
+  color: #fff;
+  padding: 16px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+header p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+/* ---------- Dashboard ---------- */
+
+.stage-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.stage-card {
+  background: #fff;
+  color: #333;
+  border: none;
+  border-left: 5px solid var(--color);
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 13px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.stage-card .count {
+  display: block;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--color);
+}
+
+.stage-card.active {
+  outline: 2px solid var(--color);
+}
+
+.summary {
+  margin: 10px 0 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ---------- Form ---------- */
+
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: normal;
+  background: #fff;
+}
+
+textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+button {
+  background: #8b3a0f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 9px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.secondary {
+  background: #6c757d;
+}
+
+button.danger {
+  background: #c0392b;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* ---------- Orders ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.filters input {
+  flex: 2 1 200px;
+  margin: 0;
+}
+
+.filters select {
+  flex: 1 1 140px;
+  margin: 0;
+}
+
+.order {
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.order p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.order-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.order .customer {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.muted {
+  color: #666;
+}
+
+.badge {
+  background: var(--color);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.actions button {
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.empty {
+  color: #777;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  padding: 10px 16px 24px;
+}
+
+.link-btn {
+  background: none;
+  color: #8b3a0f;
+  text-decoration: underline;
+  padding: 0 4px;
+}
+
+/* ---------- Stage colours ---------- */
+
+.stage-query { --color: #6c757d; }
+.stage-procurement { --color: #e67e22; }
+.stage-invoiced { --color: #2980b9; }
+.stage-dispatched { --color: #8e44ad; }
+.stage-delivered { --color: #27ae60; }
+
+/* ---------- Bigger screens: form on the left, orders on the right ---------- */
+
+@media (min-width: 850px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+}

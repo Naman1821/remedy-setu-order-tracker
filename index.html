@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracker | Remedy Setu</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Remedy Setu – Order Tracker</h1>
+    <p>Track every order from enquiry to delivery</p>
+  </header>
+
+  <main>
+    <!-- Dashboard: number of orders in each stage -->
+    <section class="dashboard">
+      <div id="stage-cards" class="stage-cards"></div>
+      <p id="summary" class="summary"></p>
+    </section>
+
+    <div class="layout">
+      <!-- Add / Edit order form -->
+      <section class="card">
+        <h2 id="form-title">Add New Order</h2>
+        <form id="order-form">
+          <input type="hidden" id="order-id">
+
+          <label>Customer / Business Name *
+            <input type="text" id="customer" required>
+          </label>
+
+          <label>Phone *
+            <input type="tel" id="phone" required pattern="[0-9]{10}" title="Enter a 10 digit phone number">
+          </label>
+
+          <label>City
+            <input type="text" id="city">
+          </label>
+
+          <label>Items *
+            <textarea id="items" required placeholder="e.g. Rudraksha 5 Mukhi x 100"></textarea>
+          </label>
+
+          <label>Amount (₹) *
+            <input type="number" id="amount" min="0" required>
+          </label>
+
+          <label>Courier Tracking ID
+            <input type="text" id="tracking" placeholder="Needed when the order is dispatched">
+          </label>
+
+          <label>Stage
+            <select id="stage"></select>
+          </label>
+
+          <div class="form-buttons">
+            <button type="submit" id="save-btn">Add Order</button>
+            <button type="button" id="cancel-btn" class="secondary" hidden>Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Orders list -->
+      <section class="card">
+        <h2>Orders</h2>
+        <div class="filters">
+          <input type="text" id="search" placeholder="Search name, phone, city or tracking ID">
+          <select id="stage-filter">
+            <option value="">All stages</option>
+          </select>
+        </div>
+        <div id="order-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    Data is saved in this browser (localStorage).
+    <button type="button" id="reset-btn" class="link-btn">Reset sample data</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
